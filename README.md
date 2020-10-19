@@ -218,7 +218,7 @@
 
 ```
 cd /home/{username}/miniconda3/env/{yourEnvName}/
-zip -r ~/cluster.zip . 
+zip -r ../cluster.zip . 
 ```
 
 ### RUN
