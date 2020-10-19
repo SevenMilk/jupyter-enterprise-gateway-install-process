@@ -1,4 +1,4 @@
-## jupyter-enterprise-gateway 安裝過程
+## Jupyter-Enterprise-Gateway 安裝過程
 > 注意，這是我自己測試後的安裝成功過程案例，並不是最好的方案，如果有不完善的地方或在安裝過程遇到錯誤還麻煩請提出
 
 > 另外小弟目前是Spark新手，參數有設置不好的地方還請多多指教 :)
@@ -157,7 +157,7 @@
   zipp                              1.2.0
 ``` 
 
-### 安裝YARN cluster mode 
+### 安裝 YARN cluster mode 
 *  [YARN cluster mode](https://jupyter-enterprise-gateway.readthedocs.io/en/latest/kernel-yarn-cluster-mode.html)
 ```
   wget https://github.com/jupyter/enterprise_gateway/releases/download/v2.3.0/jupyter_enterprise_gateway_kernelspecs-2.3.0.tar.gz
@@ -166,7 +166,7 @@
   tar -zxvf jupyter_enterprise_gateway_kernelspecs-2.3.0.tar.gz --strip 1 --directory $KERNELS_FOLDER/spark_python_yarn_cluster/ spark_python_yarn_cluster/
 ```
 
-### vim spark_python_yarn_cluster kernel.json file
+### 編輯 spark_python_yarn_cluster kernel.json file
 
 *  PATH：/home/{username}/minconda3/env/{yourEnvName}/share/jupyter/kernel/spark_python_yarn_cluster/kernel.json file
 *  附上我的file作為參考，注意要自行去改動{username}&{yourEnvName}的設置
@@ -206,7 +206,7 @@
   }
 ```
 
-### vim jupyter_enterprise_gateway_config.py
+### 編輯 jupyter_enterprise_gateway_config.py
 *  輸入
 `jupyter enterprisegateway --generate-config`
 會產生`jupyter_enterprise_gateway_config.py`，在其中增加`c.EnterpriseGatewayApp.yarn_endpoint = 'http://172.24.0.12:8088/cluster'`
