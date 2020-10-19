@@ -1,10 +1,15 @@
 ## jupyter-enterprise-gateway 安裝過程
-<table><tr><td bgcolor=orange>背景色是：orange</td></tr></table>
+
+`#ffffff`
+
+<table><tr><td bgcolor=orange>
+	
 ```
 憑著記憶寫出安裝過程，如果有不完善的地方或在安裝過程遇到錯誤還麻煩請提出
 另外小弟目前是Spark新手，參數有設置不好的地方還請多多指教 :)
 E-mail：starlight395@gmail.com
 ```
+</td></tr></table>
 
 ### 安裝虛擬環境
 
