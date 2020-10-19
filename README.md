@@ -1,5 +1,3 @@
-## jupyter-enterprise-gateway 安裝過程
-
 <table><tr><td>
 	
 ```
@@ -9,6 +7,7 @@ E-mail：starlight395@gmail.com
 ```
 </td></tr></table>
 
+## jupyter-enterprise-gateway 安裝過程
 *  目的：讓jupyter可以使用delpoy mode=cluster
 
 ### 安裝虛擬環境
