@@ -13,11 +13,10 @@
 ## pip install pachage
 
 *  這裡請注意要使用__pip__安裝相關package，使用conda會安裝到舊版，基本上只要這幾個即可，但我還是會附上目前安裝的list供參考：
-<pre><code>
-    pip install jupyter
-    pip install jupyter_enterprise_gateway
-    pip install jupyter-kernel-gateway 
-</code></pre>
+    `pip install jupyter`
+    `pip install jupyter_enterprise_gateway`
+    `pip install jupyter-kernel-gateway`
+
 
 
 <pre><code>
