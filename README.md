@@ -1,6 +1,8 @@
 ## jupyter-enterprise-gateway 安裝過程
 
-`#ffffff`
+<div class="text-white bg-blue mb-2">
+  .text-white on .bg-blue
+</div>
 
 <table><tr><td bgcolor=orange>
 	
