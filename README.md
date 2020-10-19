@@ -3,7 +3,6 @@
 
 *  這裡沒有要求一定要用anaconda/miniconda或virtualenv套件，使用虛擬環境原因除了可以設定自己的使用環境不干擾其他使用環境，之後可以打包成zip檔上傳至YARN讓其他的executor去使用相關的package，我是使用miniconda安裝虛擬環境，python=3.5
 <pre><code>  
-
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86.sh
     chmod +x ./Miniconda3-latest-Linux-x86_64.sh
     ./Miniconda3-latest-Linux-x86_64.sh
@@ -15,7 +14,6 @@
 
 *  這裡請注意要使用__pip__安裝相關package，使用conda會安裝到舊版，基本上只要這幾個即可，但我還是會附上目前安裝的list供參考：
 <pre><code>
-
     pip install jupyter
     pip install jupyter_enterprise_gateway
     pip install jupyter-kernel-gateway 
@@ -23,7 +21,6 @@
 
 
 <pre><code>
-
     Package                           Version
     --------------------------------- ------------
     apache-log-parser                 1.7.0
