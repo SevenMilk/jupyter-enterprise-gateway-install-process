@@ -9,6 +9,8 @@ E-mail：starlight395@gmail.com
 ```
 </td></tr></table>
 
+*  目的：讓jupyter可以使用delpoy mode=cluster
+
 ### 安裝虛擬環境
 
 *  這裡沒有要求一定要用anaconda/miniconda或virtualenv套件，使用虛擬環境原因除了可以設定自己的使用環境不干擾其他使用環境，之後可以打包成zip檔上傳至YARN讓其他的executor去使用相關的package，我是使用miniconda安裝虛擬環境，python=3.5
