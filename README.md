@@ -1,7 +1,9 @@
 ## jupyter-enterprise-gateway 安裝過程
 > 憑著記憶寫出安裝過程，如果有不完善的地方或在安裝過程遇到錯誤還麻煩請提出
-另外小弟目前是Spark新手，參數有設置不好的地方還請多多指教 :)
-E-mail：starlight395@gmail.com
+
+> 另外小弟目前是Spark新手，參數有設置不好的地方還請多多指教 :)
+
+> E-mail：starlight395@gmail.com
 
 > 目的：讓jupyter可以使用delpoy mode=cluster
 
