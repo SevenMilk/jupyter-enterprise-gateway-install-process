@@ -9,7 +9,7 @@
 
 ### 安裝虛擬環境
 
-*  這裡沒有要求一定要用anaconda/miniconda或virtualenv套件，使用虛擬環境原因除了可以設定自己的使用環境不干擾其他使用環境，之後可以打包成zip檔上傳至YARN讓其他的executor去使用相關的package，我是使用miniconda安裝虛擬環境，python=3.5
+*  這裡沒有要求一定要用anaconda/miniconda或virtualenv套件，使用虛擬環境原因除了可以設定自己的專屬環境不干擾其他使用環境，之後可以打包成zip檔上傳至YARN讓其他的executor去使用相關的package，我是使用miniconda安裝虛擬環境，python=3.5
 ```  
   wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86.sh
   chmod +x ./Miniconda3-latest-Linux-x86_64.sh
@@ -169,7 +169,8 @@
 ### vim spark_python_yarn_cluster kernel.json file
 
 *  PATH：/home/{username}/minconda3/env/{yourEnvName}/share/jupyter/kernel/spark_python_yarn_cluster/kernel.json file
-*  附上我的file作為參考
+*  附上我的file作為參考，注意要自行去改動{username}&{yourEnvName}的設置
+*  本範例的Spark&Hadoop原始不是在miniconda中，測試時擔心會出其他問題索性就`cp spark & hadoop dir`至`miniconda/envs/{yourEnvName}/`中
 *  是否能改動appname? 有試過似乎是不行，從EG的程式看他是用appName抓application ID，改動會抓不到導致無法啟動
 ```
   {
@@ -181,18 +182,18 @@
       }
     },
     "env": {
-      "SPARK_HOME": "/home/ericjiang/miniconda3/envs/cluster/spark-2.4.3-bin-hadoop2.7",
-  	"SPARK_CONF_DIR": "/home/ericjiang/miniconda3/envs/cluster/spark-2.4.3-bin-hadoop2.7/conf",
-  	"HADOOP_HOME": "/home/ericjiang/miniconda3/envs/cluster/hadoop-2.7.3",
-      "HADOOP_CONF_DIR": "/home/ericjiang/miniconda3/envs/cluster/hadoop-2.7.3/etc/hadoop/",	
-  	"PROG_HOME": "/home/ericjiang/miniconda3/envs/cluster/share/jupyter/kernels/spark_python_yarn_cluster",
+      "SPARK_HOME": "/home/{username}/miniconda3/env/{yourEnvName}/spark-2.4.3-bin-hadoop2.7",
+  	"SPARK_CONF_DIR": "/home/{username}/miniconda3/env/{yourEnvName}/spark-2.4.3-bin-hadoop2.7/conf",
+  	"HADOOP_HOME": "/home/{username}/miniconda3/env/{yourEnvName}/hadoop-2.7.3",
+      "HADOOP_CONF_DIR": "/home/{username}/miniconda3/env/{yourEnvName}/hadoop-2.7.3/etc/hadoop/",	
+  	"PROG_HOME": "/home/{username}/miniconda3/env/{yourEnvName}/share/jupyter/kernels/spark_python_yarn_cluster",
   	"PYSPARK_PYTHON": "/usr/bin/python3",
-      "PYTHONPATH": "/home/ericjiang/miniconda3/envs/cluster/lib/python3.5/site-packages:/home/ericjiang/miniconda3/envs/cluster/spark-2.4.3-bin-hadoop2.7/python:/home/ericjiang/miniconda3/envs/cluster/spark-2.4.3-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip",
-      "SPARK_OPTS": "--master yarn --deploy-mode cluster --name ${KERNEL_ID:-ERROR__NO__KERNEL_ID} --py-files /home/ericjiang/dependencies.zip --conf spark.sql.auto.repartition=ture --conf spark.executor.heartbeatInterval=60 --conf spark.yarn.queue=spark --conf spark.executor.instances=5 --conf spark.driver-memory=8g --conf spark.driver.cores=4 --conf spark.executor.memory=8g --conf spark.executor.cores=4 --conf spark.default.parallelism=600 --conf spark.sql.shuffle.partitions=400 --conf spark.yarn.submit.waitAppCompletion=false --conf spark.yarn.dist.archives=/home/ericjiang/miniconda3/envs/cluster.zip#cluster --conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=cluster/bin/python3.5 --conf spark.yarn.executorEnv.PYSPARK_PYTHON=cluster/bin/python3.5 --conf spark.yarn.appMasterEnv.PYTHONUSERBASE=cluster --conf spark.yarn.appMasterEnv.PYTHONPATH=cluster/lib/python3.5/site-packages:cluster/spark-2.4.3-bin-hadoop2.7/python:cluster/spark-2.4.3-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip --conf spark.yarn.appMasterEnv.PATH=cluster/bin:$PATH ${KERNEL_EXTRA_SPARK_OPTS}",
+      "PYTHONPATH": "/home/{username}/miniconda3/env/{yourEnvName}/lib/python3.5/site-packages:/home/{username}/miniconda3/env/{yourEnvName}/spark-2.4.3-bin-hadoop2.7/python:/home/{username}/miniconda3/env/{yourEnvName}/spark-2.4.3-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip",
+      "SPARK_OPTS": "--master yarn --deploy-mode cluster --name ${KERNEL_ID:-ERROR__NO__KERNEL_ID} --conf spark.sql.auto.repartition=ture --conf spark.executor.heartbeatInterval=60 --conf spark.yarn.queue=spark --conf spark.executor.instances=5 --conf spark.driver-memory=8g --conf spark.driver.cores=4 --conf spark.executor.memory=8g --conf spark.executor.cores=4 --conf spark.default.parallelism=600 --conf spark.sql.shuffle.partitions=400 --conf spark.yarn.submit.waitAppCompletion=false --conf spark.yarn.dist.archives=/home/{username}/miniconda3/env/cluster.zip#cluster --conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=cluster/bin/python3.5 --conf spark.yarn.executorEnv.PYSPARK_PYTHON=cluster/bin/python3.5 --conf spark.yarn.appMasterEnv.PYTHONUSERBASE=cluster --conf spark.yarn.appMasterEnv.PYTHONPATH=cluster/lib/python3.5/site-packages:cluster/spark-2.4.3-bin-hadoop2.7/python:cluster/spark-2.4.3-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip --conf spark.yarn.appMasterEnv.PATH=cluster/bin:$PATH ${KERNEL_EXTRA_SPARK_OPTS}",
       "LAUNCH_OPTS": ""
     },
     "argv": [
-      "/home/ericjiang/miniconda3/envs/cluster/share/jupyter/kernels/spark_python_yarn_cluster/bin/run.sh",
+      "/home/{username}/miniconda3/env/{yourEnvName}/share/jupyter/kernels/spark_python_yarn_cluster/bin/run.sh",
       "--RemoteProcessProxy.kernel-id",
       "{kernel_id}",
       "--RemoteProcessProxy.response-address",
@@ -212,6 +213,13 @@
 
 ### 設定環境參數
 *  可在`spark-env.sh`或`~/.bashrc`設置SPARK_HOME、HADOOP_HOME、SPARK_CONF_DIR、HADOOP_CONF_DIR路徑
+
+### 打包環境
+
+```
+cd /home/{username}/miniconda3/env/{yourEnvName}/
+zip -r ~/cluster.zip . 
+```
 
 ### RUN
 
