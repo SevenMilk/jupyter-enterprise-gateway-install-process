@@ -1,6 +1,6 @@
 ## jupyter-enterprise-gateway 安裝過程
 
-<td><tr><table>
+<table><tr><td>
 	
 ```
 憑著記憶寫出安裝過程，如果有不完善的地方或在安裝過程遇到錯誤還麻煩請提出
