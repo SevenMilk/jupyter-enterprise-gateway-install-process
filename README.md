@@ -2,15 +2,15 @@
 ## 安裝虛擬環境
 
 *  這裡沒有要求一定要用anaconda/miniconda或virtualenv套件，使用虛擬環境原因除了可以設定自己的使用環境不干擾其他使用環境，之後可以打包成zip檔上傳至YARN讓其他的executor去使用相關的package，我是使用miniconda安裝虛擬環境，python=3.5
-<pre><code>  
+```  
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86.sh
     chmod +x ./Miniconda3-latest-Linux-x86_64.sh
     ./Miniconda3-latest-Linux-x86_64.sh
     source ~/.bashrc
     conda create --name mySparkEnv python=3.5
-</code></pre>
+```
     
-## pip install pachage
+## 安裝相關套件
 
 *  這裡請注意要使用__pip__安裝相關package，使用conda會安裝到舊版，基本上只要這幾個即可，但我還是會附上目前安裝的list供參考：
 ```
@@ -19,9 +19,8 @@
     pip install jupyter-kernel-gateway
 ```
 
-
-
-<pre><code>
+*  pip list
+```
     Package                           Version
     --------------------------------- ------------
     apache-log-parser                 1.7.0
@@ -148,4 +147,60 @@
     yarn-api-client                   1.0.2
     zict                              2.0.0
     zipp                              1.2.0
-</code></pre>
+``` 
+
+## 安裝YARN cluster mode 
+*  [YARN cluster mode](https://jupyter-enterprise-gateway.readthedocs.io/en/latest/kernel-yarn-cluster-mode.html)
+```
+	wget https://github.com/jupyter/enterprise_gateway/releases/download/v2.3.0/jupyter_enterprise_gateway_kernelspecs-2.3.0.tar.gz
+	mdkir /home/{username}/minconda3/env/{yourEnvName}/share/jupyter/kernel/spark_python_yarn_cluster
+	KERNELS_FOLDER=/home/{username}/minconda3/env/{yourEnvName}/share/jupyter/kernel/spark_python_yarn_cluster
+	tar -zxvf jupyter_enterprise_gateway_kernelspecs-2.3.0.tar.gz --strip 1 --directory $KERNELS_FOLDER/spark_python_yarn_cluster/ spark_python_yarn_cluster/
+```
+
+## vim spark_python_yarn_cluster kernel.json file
+
+*  PATH：/home/{username}/minconda3/env/{yourEnvName}/share/jupyter/kernel/spark_python_yarn_cluster/kernel.json file
+*  附上我的file作為參考
+*  是否能改動appname? 有試過似乎是不行，從EG的程式看他是用appName抓application ID，改動會抓不到導致無法啟動
+```
+	{
+	  "language": "python",
+	  "display_name": "Spark - Python (YARN Cluster Mode)",
+	  "metadata": {
+		"process_proxy": {
+		  "class_name": "enterprise_gateway.services.processproxies.yarn.YarnClusterProcessProxy"
+		}
+	  },
+	  "env": {
+		"SPARK_HOME": "/home/ericjiang/miniconda3/envs/cluster/spark-2.4.3-bin-hadoop2.7",
+		"SPARK_CONF_DIR": "/home/ericjiang/miniconda3/envs/cluster/spark-2.4.3-bin-hadoop2.7/conf",
+		"HADOOP_HOME": "/home/ericjiang/miniconda3/envs/cluster/hadoop-2.7.3",
+		"HADOOP_CONF_DIR": "/home/ericjiang/miniconda3/envs/cluster/hadoop-2.7.3/etc/hadoop/",	
+		"PROG_HOME": "/home/ericjiang/miniconda3/envs/cluster/share/jupyter/kernels/spark_python_yarn_cluster",
+		"PYSPARK_PYTHON": "/usr/bin/python3",
+		"PYTHONPATH": "/home/ericjiang/miniconda3/envs/cluster/lib/python3.5/site-packages:/home/ericjiang/miniconda3/envs/cluster/spark-2.4.3-bin-hadoop2.7/python:/home/ericjiang/miniconda3/envs/cluster/spark-2.4.3-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip",
+		"SPARK_OPTS": "--master yarn --deploy-mode cluster --name ${KERNEL_ID:-ERROR__NO__KERNEL_ID} --py-files /home/ericjiang/dependencies.zip --conf spark.sql.auto.repartition=ture --conf spark.executor.heartbeatInterval=60 --conf spark.yarn.queue=spark --conf spark.executor.instances=5 --conf spark.driver-memory=8g --conf spark.driver.cores=4 --conf spark.executor.memory=8g --conf spark.executor.cores=4 --conf spark.default.parallelism=600 --conf spark.sql.shuffle.partitions=400 --conf spark.yarn.submit.waitAppCompletion=false --conf spark.yarn.dist.archives=/home/ericjiang/miniconda3/envs/cluster.zip#cluster --conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=cluster/bin/python3.5 --conf spark.yarn.executorEnv.PYSPARK_PYTHON=cluster/bin/python3.5 --conf spark.yarn.appMasterEnv.PYTHONUSERBASE=cluster --conf spark.yarn.appMasterEnv.PYTHONPATH=cluster/lib/python3.5/site-packages:cluster/spark-2.4.3-bin-hadoop2.7/python:cluster/spark-2.4.3-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip --conf spark.yarn.appMasterEnv.PATH=cluster/bin:$PATH ${KERNEL_EXTRA_SPARK_OPTS}",
+		"LAUNCH_OPTS": ""
+	  },
+	  "argv": [
+		"/home/ericjiang/miniconda3/envs/cluster/share/jupyter/kernels/spark_python_yarn_cluster/bin/run.sh",
+		"--RemoteProcessProxy.kernel-id",
+		"{kernel_id}",
+		"--RemoteProcessProxy.response-address",
+		"{response_address}",
+		"--RemoteProcessProxy.port-range",
+		"{port_range}",
+		"--RemoteProcessProxy.spark-context-initialization-mode",
+		"lazy"
+	  ]
+	}
+```
+
+# vim jupyter_enterprise_gateway_config.py
+
+`jupyter enterprisegateway --generate-config`
+
+
+
+
