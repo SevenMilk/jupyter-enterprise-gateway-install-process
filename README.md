@@ -1,10 +1,12 @@
 ## jupyter-enterprise-gateway 安裝過程
 
-<div class="text-white bg-blue mb-2">
-  .text-white on .bg-blue
-</div>
 
-<table><tr><td bgcolor=orange>
+body, .ui-view-area, .markdown-body, .markdown-body img {
+  background-color: #1E2126;
+  color: #ABB2BF;
+}
+
+
 	
 ```
 憑著記憶寫出安裝過程，如果有不完善的地方或在安裝過程遇到錯誤還麻煩請提出
