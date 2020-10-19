@@ -1,4 +1,11 @@
 ## jupyter-enterprise-gateway 安裝過程
+
+```
+憑著記憶寫出安裝過程，如果有不完善的地方或在安裝過程遇到錯誤還麻煩請提出
+另外小弟目前是Spark新手，參數有設置不好的地方還請多多指教 :)
+E-mail：starlight395@gmail.com
+```
+
 ### 安裝虛擬環境
 
 *  這裡沒有要求一定要用anaconda/miniconda或virtualenv套件，使用虛擬環境原因除了可以設定自己的使用環境不干擾其他使用環境，之後可以打包成zip檔上傳至YARN讓其他的executor去使用相關的package，我是使用miniconda安裝虛擬環境，python=3.5
