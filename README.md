@@ -1,5 +1,5 @@
-# jupyter-enterprise-gateway 安裝過程
-## 安裝虛擬環境
+## jupyter-enterprise-gateway 安裝過程
+### 安裝虛擬環境
 
 *  這裡沒有要求一定要用anaconda/miniconda或virtualenv套件，使用虛擬環境原因除了可以設定自己的使用環境不干擾其他使用環境，之後可以打包成zip檔上傳至YARN讓其他的executor去使用相關的package，我是使用miniconda安裝虛擬環境，python=3.5
 ```  
@@ -10,7 +10,7 @@
     conda create --name mySparkEnv python=3.5
 ```
     
-## 安裝相關套件
+### 安裝相關套件
 
 *  這裡請注意要使用__pip__安裝相關package，使用conda會安裝到舊版，基本上只要這幾個即可，但我還是會附上目前安裝的list供參考：
 ```
@@ -149,7 +149,7 @@
     zipp                              1.2.0
 ``` 
 
-## 安裝YARN cluster mode 
+### 安裝YARN cluster mode 
 *  [YARN cluster mode](https://jupyter-enterprise-gateway.readthedocs.io/en/latest/kernel-yarn-cluster-mode.html)
 ```
 	wget https://github.com/jupyter/enterprise_gateway/releases/download/v2.3.0/jupyter_enterprise_gateway_kernelspecs-2.3.0.tar.gz
@@ -158,7 +158,7 @@
 	tar -zxvf jupyter_enterprise_gateway_kernelspecs-2.3.0.tar.gz --strip 1 --directory $KERNELS_FOLDER/spark_python_yarn_cluster/ spark_python_yarn_cluster/
 ```
 
-## vim spark_python_yarn_cluster kernel.json file
+### vim spark_python_yarn_cluster kernel.json file
 
 *  PATH：/home/{username}/minconda3/env/{yourEnvName}/share/jupyter/kernel/spark_python_yarn_cluster/kernel.json file
 *  附上我的file作為參考
@@ -197,15 +197,15 @@
 	}
 ```
 
-# vim jupyter_enterprise_gateway_config.py
+### vim jupyter_enterprise_gateway_config.py
 輸入
 `jupyter enterprisegateway --generate-config`
 會產生`jupyter_enterprise_gateway_config.py`，在其中增加`c.EnterpriseGatewayApp.yarn_endpoint = 'http://172.24.0.12:8088/cluster'`
 
-# 設定環境參數
+### 設定環境參數
 *  可在`spark-env.sh`或`~/.bashrc`設置SPARK_HOME、HADOOP_HOME、SPARK_CONF_DIR、HADOOP_CONF_DIR路徑
 
-# RUN
+### RUN
 
 在不同的視窗啟動jupyter enterprise gateway & jupyter notebook
 `jupyter enterprisegateway --ip=172.24.0.216 --port_retries=0 --debug`
