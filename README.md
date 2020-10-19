@@ -198,7 +198,7 @@
 ```
 
 ### vim jupyter_enterprise_gateway_config.py
-輸入
+*  輸入
 `jupyter enterprisegateway --generate-config`
 會產生`jupyter_enterprise_gateway_config.py`，在其中增加`c.EnterpriseGatewayApp.yarn_endpoint = 'http://172.24.0.12:8088/cluster'`
 
@@ -207,9 +207,11 @@
 
 ### RUN
 
-在不同的視窗啟動jupyter enterprise gateway & jupyter notebook
-`jupyter enterprisegateway --ip=172.24.0.216 --port_retries=0 --debug`
-`jupyter notebook  --gateway-url=http://172.24.0.216:8888`
+*  在不同的視窗啟動jupyter enterprise gateway & jupyter notebook
+```
+jupyter enterprisegateway --ip=172.24.0.216 --port_retries=0 --debug
+jupyter notebook  --gateway-url=http://172.24.0.216:8888
+```
 接著啟動核心即可！
 
 
