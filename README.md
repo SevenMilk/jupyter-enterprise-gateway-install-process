@@ -15,7 +15,7 @@
   chmod +x ./Miniconda3-latest-Linux-x86_64.sh
   ./Miniconda3-latest-Linux-x86_64.sh
   source ~/.bashrc
-  conda create --name mySparkEnv python=3.5
+  conda create --name {yourEnvName} python=3.5
 ```
     
 ### 安裝相關套件
