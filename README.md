@@ -229,7 +229,7 @@ zip -r ../cluster.zip .
 
 *  在不同的視窗啟動jupyter enterprise gateway & jupyter notebook
 ```Shell
-  jupyter enterprisegateway --ip={your jupyter enterprise gateway location ip} --port_retries=0 --debug
+  jupyter enterprisegateway --ip={your jupyter enterprise gateway ip} --port_retries=0 --debug
   jupyter notebook --gateway-url=http://{localhost}:8888
 ```
 接著啟動核心即可！
