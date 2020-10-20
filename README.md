@@ -7,6 +7,8 @@
 
 > 目的：在Jupyter環境下使用deploy-mode=cluster
 
+> 此案例是安裝Spark_Python_YARN_Cluster Kernel，Scala & R安裝方式大同小異！
+
 > Reference：[Jupyter EG](https://jupyter-enterprise-gateway.readthedocs.io/en/latest/index.html)，[Jupyter EG github](https://github.com/jupyter/enterprise_gateway)
 
 ### 安裝虛擬環境
