@@ -193,15 +193,15 @@
               "LAUNCH_OPTS": ""
     },
     "argv": [
-               "/home/{username}/miniconda3/env/{yourEnvName}/share/jupyter/kernels/spark_python_yarn_cluster/bin/run.sh",
-               "--RemoteProcessProxy.kernel-id",
-               "{kernel_id}",
-               "--RemoteProcessProxy.response-address",
-               "{response_address}",
-               "--RemoteProcessProxy.port-range",
-               "{port_range}",
-               "--RemoteProcessProxy.spark-context-initialization-mode",
-               "lazy"
+              "/home/{username}/miniconda3/env/{yourEnvName}/share/jupyter/kernels/spark_python_yarn_cluster/bin/run.sh",
+              "--RemoteProcessProxy.kernel-id",
+              "{kernel_id}",
+              "--RemoteProcessProxy.response-address",
+              "{response_address}",
+              "--RemoteProcessProxy.port-range",
+              "{port_range}",
+              "--RemoteProcessProxy.spark-context-initialization-mode",
+              "lazy"
     ]
   }
 ```
