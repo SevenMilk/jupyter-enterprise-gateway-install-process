@@ -5,7 +5,9 @@
 
 > E-mail：starlight395@gmail.com
 
-> 目的：讓jupyter可以使用delpoy mode=cluster
+> 目的：在Jupyter環境下使用deploy-mode=cluster
+
+> Reference：[Jupyter EG](https://jupyter-enterprise-gateway.readthedocs.io/en/latest/index.html)，[Jupyter EG github](https://github.com/jupyter/enterprise_gateway)
 
 ### 安裝虛擬環境
 
