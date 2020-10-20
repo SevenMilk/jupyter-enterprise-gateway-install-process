@@ -182,26 +182,26 @@
       }
     },
     "env": {
-    "SPARK_HOME": "/home/{username}/miniconda3/env/{yourEnvName}/spark-2.4.3-bin-hadoop2.7",
-  	"SPARK_CONF_DIR": "/home/{username}/miniconda3/env/{yourEnvName}/spark-2.4.3-bin-hadoop2.7/conf",
-  	"HADOOP_HOME": "/home/{username}/miniconda3/env/{yourEnvName}/hadoop-2.7.3",
-    "HADOOP_CONF_DIR": "/home/{username}/miniconda3/env/{yourEnvName}/hadoop-2.7.3/etc/hadoop/",	
-  	"PROG_HOME": "/home/{username}/miniconda3/env/{yourEnvName}/share/jupyter/kernels/spark_python_yarn_cluster",
-  	"PYSPARK_PYTHON": "/usr/bin/python3",
-    "PYTHONPATH": "/home/{username}/miniconda3/env/{yourEnvName}/lib/python3.5/site-packages:/home/{username}/miniconda3/env/{yourEnvName}/spark-2.4.3-bin-hadoop2.7/python:/home/{username}/miniconda3/env/{yourEnvName}/spark-2.4.3-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip",
-    "SPARK_OPTS": "--master yarn --deploy-mode cluster --name ${KERNEL_ID:-ERROR__NO__KERNEL_ID} --conf spark.sql.auto.repartition=ture --conf spark.executor.heartbeatInterval=60 --conf spark.yarn.queue=spark --conf spark.executor.instances=5 --conf spark.driver-memory=8g --conf spark.driver.cores=4 --conf spark.executor.memory=8g --conf spark.executor.cores=4 --conf spark.default.parallelism=600 --conf spark.sql.shuffle.partitions=400 --conf spark.yarn.submit.waitAppCompletion=false --conf spark.yarn.dist.archives=/home/{username}/miniconda3/env/cluster.zip#cluster --conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=cluster/bin/python3.5 --conf spark.yarn.executorEnv.PYSPARK_PYTHON=cluster/bin/python3.5 --conf spark.yarn.appMasterEnv.PYTHONUSERBASE=cluster --conf spark.yarn.appMasterEnv.PYTHONPATH=cluster/lib/python3.5/site-packages:cluster/spark-2.4.3-bin-hadoop2.7/python:cluster/spark-2.4.3-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip --conf spark.yarn.appMasterEnv.PATH=cluster/bin:$PATH ${KERNEL_EXTRA_SPARK_OPTS}",
-      "LAUNCH_OPTS": ""
+              "SPARK_HOME": "/home/{username}/miniconda3/env/{yourEnvName}/spark-2.4.3-bin-hadoop2.7",
+  	      "SPARK_CONF_DIR": "/home/{username}/miniconda3/env/{yourEnvName}/spark-2.4.3-bin-hadoop2.7/conf",
+  	      "HADOOP_HOME": "/home/{username}/miniconda3/env/{yourEnvName}/hadoop-2.7.3",
+              "HADOOP_CONF_DIR": "/home/{username}/miniconda3/env/{yourEnvName}/hadoop-2.7.3/etc/hadoop/",	
+  	      "PROG_HOME": "/home/{username}/miniconda3/env/{yourEnvName}/share/jupyter/kernels/spark_python_yarn_cluster",
+  	      "PYSPARK_PYTHON": "/usr/bin/python3",
+              "PYTHONPATH": "/home/{username}/miniconda3/env/{yourEnvName}/lib/python3.5/site-packages:/home/{username}/miniconda3/env/{yourEnvName}/spark-2.4.3-bin-hadoop2.7/python:/home/{username}/miniconda3/env/{yourEnvName}/spark-2.4.3-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip",
+              "SPARK_OPTS": "--master yarn --deploy-mode cluster --name ${KERNEL_ID:-ERROR__NO__KERNEL_ID} --conf spark.sql.auto.repartition=ture --conf spark.executor.heartbeatInterval=60 --conf spark.yarn.queue=spark --conf spark.executor.instances=5 --conf spark.driver-memory=8g --conf spark.driver.cores=4 --conf spark.executor.memory=8g --conf spark.executor.cores=4 --conf spark.default.parallelism=600 --conf spark.sql.shuffle.partitions=400 --conf spark.yarn.submit.waitAppCompletion=false --conf spark.yarn.dist.archives=/home/{username}/miniconda3/env/cluster.zip#cluster --conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=cluster/bin/python3.5 --conf spark.yarn.executorEnv.PYSPARK_PYTHON=cluster/bin/python3.5 --conf spark.yarn.appMasterEnv.PYTHONUSERBASE=cluster --conf spark.yarn.appMasterEnv.PYTHONPATH=cluster/lib/python3.5/site-packages:cluster/spark-2.4.3-bin-hadoop2.7/python:cluster/spark-2.4.3-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip --conf spark.yarn.appMasterEnv.PATH=cluster/bin:$PATH ${KERNEL_EXTRA_SPARK_OPTS}",
+              "LAUNCH_OPTS": ""
     },
     "argv": [
-      "/home/{username}/miniconda3/env/{yourEnvName}/share/jupyter/kernels/spark_python_yarn_cluster/bin/run.sh",
-      "--RemoteProcessProxy.kernel-id",
-      "{kernel_id}",
-      "--RemoteProcessProxy.response-address",
-      "{response_address}",
-      "--RemoteProcessProxy.port-range",
-      "{port_range}",
-      "--RemoteProcessProxy.spark-context-initialization-mode",
-      "lazy"
+               "/home/{username}/miniconda3/env/{yourEnvName}/share/jupyter/kernels/spark_python_yarn_cluster/bin/run.sh",
+               "--RemoteProcessProxy.kernel-id",
+               "{kernel_id}",
+               "--RemoteProcessProxy.response-address",
+               "{response_address}",
+               "--RemoteProcessProxy.port-range",
+               "{port_range}",
+               "--RemoteProcessProxy.spark-context-initialization-mode",
+               "lazy"
     ]
   }
 ```
