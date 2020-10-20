@@ -174,7 +174,7 @@
 
 *  PATH：/home/{username}/minconda3/env/{yourEnvName}/share/jupyter/kernel/spark_python_yarn_cluster/kernel.json file
 *  附上我的file作為參考，注意要自行去改動`{username}`&`{yourEnvName}`的設置
-*  本範例的`Spark Home & Hadoop Home`原始位置不是在miniconda中，測試時擔心會出問題索性將`Spark Home & Hadoop Home dir`CP至`miniconda/envs/{yourEnvName}/`中 (可能此動作是多餘的)
+*  本範例的`Spark Home & Hadoop Home`原始位置不是在miniconda中，測試時擔心會出問題索性將`Spark Home & Hadoop Home dir`CP至`miniconda/envs/{yourEnvName}/`中 (此動作可能是多餘的)
 *  Q：是否能改動appName? 有試過似乎是不行，從EG的程式看他是用appName抓Application ID，改動會抓不到導致無法啟動
 ```Json
   {
