@@ -215,7 +215,7 @@
 `jupyter enterprisegateway --generate-config`
 會產生`jupyter_enterprise_gateway_config.py`，在其中增加`c.EnterpriseGatewayApp.yarn_endpoint = 'http://{your RM IP}:8088/cluster'`
 
-### KERNEL_LAUNCH_TIMEOUT
+### 編輯 KERNEL_LAUNCH_TIMEOUT
 *  將`KERNEL_LAUNCH_TIMEOUT`改成120 seconds(default=40 seconds)
 
 ### 設定環境參數
@@ -240,7 +240,7 @@ zip -r ../cluster.zip .
 
 
 ```diff
-- r111
+- red
 + green
 ! orange
 # gray
