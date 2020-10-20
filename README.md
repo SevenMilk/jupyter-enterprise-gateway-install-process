@@ -14,7 +14,7 @@
 ### 安裝虛擬環境
 
 *  這裡沒有要求一定要用anaconda/miniconda或virtualenv套件，使用虛擬環境原因除了可以設定自己的專屬環境不干擾其他使用環境，之後可以打包成zip檔上傳至YARN讓其他的executor去使用相關的package，我是使用miniconda安裝虛擬環境，python=3.5
-```  
+```Shell
   wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86.sh
   chmod +x ./Miniconda3-latest-Linux-x86_64.sh
   ./Miniconda3-latest-Linux-x86_64.sh
@@ -25,14 +25,14 @@
 ### 安裝相關套件
 
 *  這裡請注意要使用pip安裝相關package，使用conda會安裝到舊版，基本上只要這幾個即可，但我還是會附上目前安裝的list供參考：
-```
+```Shell
   pip install jupyter
   pip install jupyter_enterprise_gateway
   pip install jupyter-kernel-gateway
 ```
 
 *  pip list
-```
+```Shell
   Package                           Version
   --------------------------------- ------------
   apache-log-parser                 1.7.0
@@ -163,7 +163,7 @@
 
 ### 安裝 YARN cluster mode 
 *  [YARN cluster mode](https://jupyter-enterprise-gateway.readthedocs.io/en/latest/kernel-yarn-cluster-mode.html)
-```
+```Shell
   wget https://github.com/jupyter/enterprise_gateway/releases/download/v2.3.0/jupyter_enterprise_gateway_kernelspecs-2.3.0.tar.gz
   mdkir /home/{username}/minconda3/env/{yourEnvName}/share/jupyter/kernel/spark_python_yarn_cluster
   KERNELS_FOLDER=/home/{username}/minconda3/env/{yourEnvName}/share/jupyter/kernel/spark_python_yarn_cluster
@@ -220,7 +220,7 @@
 
 ### 打包環境
 
-```
+```Shell
 cd /home/{username}/miniconda3/env/{yourEnvName}/
 zip -r ../cluster.zip . 
 ```
@@ -228,7 +228,7 @@ zip -r ../cluster.zip .
 ### RUN
 
 *  在不同的視窗啟動jupyter enterprise gateway & jupyter notebook
-```
+```Shell
   jupyter enterprisegateway --ip={your jupyter enterprise gateway location ip} --port_retries=0 --debug
   jupyter notebook --gateway-url=http://{localhost}:8888
 ```
