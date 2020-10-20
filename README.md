@@ -209,7 +209,7 @@
 ### 編輯 jupyter_enterprise_gateway_config.py
 *  輸入
 `jupyter enterprisegateway --generate-config`
-會產生`jupyter_enterprise_gateway_config.py`，在其中增加`c.EnterpriseGatewayApp.yarn_endpoint = 'http://172.24.0.12:8088/cluster'`
+會產生`jupyter_enterprise_gateway_config.py`，在其中增加`c.EnterpriseGatewayApp.yarn_endpoint = 'http://{your RM IP}:8088/cluster'`
 
 ### 設定環境參數
 *  可在`spark-env.sh`或`~/.bashrc`設置SPARK_HOME、HADOOP_HOME、SPARK_CONF_DIR、HADOOP_CONF_DIR路徑
@@ -225,8 +225,8 @@ zip -r ../cluster.zip .
 
 *  在不同的視窗啟動jupyter enterprise gateway & jupyter notebook
 ```
-  jupyter enterprisegateway --ip=172.24.0.216 --port_retries=0 --debug
-  jupyter notebook  --gateway-url=http://172.24.0.216:8888
+  jupyter enterprisegateway --ip={your jupyter enterprise gateway location ip} --port_retries=0 --debug
+  jupyter notebook --gateway-url=http://{localhost}:8888
 ```
 接著啟動核心即可！
 
