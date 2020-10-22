@@ -14,12 +14,20 @@
 ### 安裝虛擬環境
 
 *  這裡沒有要求一定要用anaconda/miniconda或virtualenv套件，使用虛擬環境原因除了可以設定自己的專屬環境不干擾其他使用環境，之後可以打包成zip檔上傳至YARN讓其他的executor去使用相關的package，我是使用miniconda安裝虛擬環境，python=3.5
+
+conda：
 ```Shell
   wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86.sh
   chmod +x ./Miniconda3-latest-Linux-x86_64.sh
   ./Miniconda3-latest-Linux-x86_64.sh
   source ~/.bashrc
   conda create --name {yourEnvName} python=3.5
+```
+
+pip：
+```
+python3 -m venv {yourEnvName}
+source {yourEnvName}/bin/activate
 ```
     
 ### 安裝相關套件
@@ -237,6 +245,7 @@ zip -r ../cluster.zip .
 ```
 接著啟動核心即可！
 
+*  注意事項：當啟動完後，相關`Spark Properties`也會設定好，在啟動`kernel`之前必須確認`kernel.json`中的`SPARK_OPTS`，啟動後想修改目前測試結果是不行的！
 
 
 ```diff
