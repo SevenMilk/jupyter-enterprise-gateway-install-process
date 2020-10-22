@@ -1,8 +1,6 @@
 ## Jupyter-Enterprise-Gateway 安裝過程
 > 注意，這是我自己測試後的安裝成功過程案例，並不是最好的方案，如果有不完善的地方或在安裝過程遇到錯誤還麻煩請提出
 
-> 目前我是Spark新手，參數有設置不好的地方還請多多指教 :)
-
 > E-mail：starlight395@gmail.com
 
 > 目的：在Jupyter環境下使用deploy-mode=cluster
@@ -13,7 +11,7 @@
 
 ### 安裝虛擬環境
 
-*  這裡沒有要求一定要用anaconda/miniconda或virtualenv套件，使用虛擬環境原因除了可以設定自己的專屬環境不干擾其他使用環境，之後可以打包成zip檔上傳至YARN讓其他的executor去使用相關的package，我是使用miniconda安裝虛擬環境，python=3.5
+*  這裡沒有要求一定要用anaconda/miniconda或virtualenv套件，使用虛擬環境原因除了可以設定自己的專屬環境不干擾其他使用環境，之後可以打包zip檔上傳至YARN讓executor去使用相關的package，我使用miniconda安裝虛擬環境，python=3.5
 
 conda：
 ```Shell
@@ -33,7 +31,8 @@ source {yourEnvName}/bin/activate
     
 ### 安裝相關套件
 
-*  這裡請注意要使用pip安裝相關package，使用conda會安裝到舊版，基本上只要這幾個即可，但我還是會附上目前安裝的list供參考：
+*  這裡請注意要使用pip安裝相關package，使用conda會安裝到舊版，基本上只要這幾個即可，但我還是會附上目前安裝的list供參考
+*  在安裝過程可能會遇到版本不相容的問題，甚至衍伸出其他問題，在安裝前請確認版本之間相容性
 ```Shell
   pip install jupyter
   pip install jupyter_enterprise_gateway
@@ -182,7 +181,7 @@ source {yourEnvName}/bin/activate
 ### 編輯 spark_python_yarn_cluster kernel.json file
 
 *  PATH：/home/{username}/minconda3/env/{yourEnvName}/share/jupyter/kernel/spark_python_yarn_cluster/kernel.json file
-*  附上我的file作為參考，注意要自行去改動`{username}`&`{yourEnvName}`的設置
+*  附上我的kernel.json作為參考，注意要自行去改動`{username}`&`{yourEnvName}`的設置
 *  本範例的`Spark Home & Hadoop Home`原始位置不是在miniconda中，測試時擔心會出問題索性將`Spark Home & Hadoop Home dir`CP至`miniconda/envs/{yourEnvName}/`中 (此動作可能是多餘的)
 *  Q：是否能改動appName? 有試過似乎是不行，從EG lib的程式看它是用appName抓Application ID，改動會抓不到導致無法啟動
 ```Json
