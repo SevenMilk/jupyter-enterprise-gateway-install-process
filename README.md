@@ -22,10 +22,11 @@ conda：
   ./Miniconda3-latest-Linux-x86_64.sh
   source ~/.bashrc
   conda create --name {yourEnvName} python=3.5
+  conda activate {yourEnvName}
 ```
 
-pip：
-```
+pip virtualenv：
+```Shell
 python3 -m venv {yourEnvName}
 source {yourEnvName}/bin/activate
 ```
