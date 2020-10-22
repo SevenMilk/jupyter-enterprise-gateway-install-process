@@ -245,7 +245,8 @@ zip -r ../cluster.zip .
 ```
 接著啟動核心即可！
 
-*  注意事項：當啟動完後，相關`Spark Properties`也會設定好，在啟動`kernel`之前必須確認`kernel.json`中的`SPARK_OPTS`，啟動後想修改目前測試結果是不行的！
+**注意事項**：當啟動完後，相關`Spark Properties`也會設定好，在啟動`kernel`之前必須確認`kernel.json`中的`SPARK_OPTS`，啟動後想修改目前測試結果是不行！
+
 
 
 ```diff
