@@ -225,6 +225,7 @@ source {yourEnvName}/bin/activate
 
 ### 編輯 KERNEL_LAUNCH_TIMEOUT
 *  將`KERNEL_LAUNCH_TIMEOUT`改成120 seconds(default=40 seconds)
+*  `gateway/managers.py` 中 `connect_timeout_default_value`與`request_timeout_default_value`增加至150
 
 ### 設定環境參數
 *  可在`spark-env.sh`或`~/.bashrc`設置SPARK_HOME、HADOOP_HOME、SPARK_CONF_DIR、HADOOP_CONF_DIR路徑
